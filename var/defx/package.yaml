@@ -39,3 +39,12 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - defx
+
+  defx-doctest:
+    main:                doctest.hs
+    source-dirs:         .
+    ghc-options:
+    - -threaded
+    dependencies:
+    - defx
+    - doctest

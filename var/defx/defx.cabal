@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 117be06b613587ddcc8363dc3a15a25e2b0311de2d2f13a1367df38333748b30
+-- hash: bc8b1d40ea7aa9f3aee76d74f258a30c38674b0277d191711b5b8d9811b8ab4c
 
 name:           defx
 version:        0.0.0.0
@@ -46,6 +46,20 @@ executable defx-exe
   build-depends:
       base >=4.7 && <5
     , defx
+  default-language: Haskell2010
+
+test-suite defx-doctest
+  type: exitcode-stdio-1.0
+  main-is: doctest.hs
+  other-modules:
+      Paths_defx
+  hs-source-dirs:
+      ./.
+  ghc-options: -threaded
+  build-depends:
+      base >=4.7 && <5
+    , defx
+    , doctest
   default-language: Haskell2010
 
 test-suite defx-test
