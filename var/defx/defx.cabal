@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: bc8b1d40ea7aa9f3aee76d74f258a30c38674b0277d191711b5b8d9811b8ab4c
+-- hash: dec5e0bfe0b7c41ad53c457d5a86b281e3a5bb77b167d984cf535f929de2d6f1
 
 name:           defx
 version:        0.0.0.0
@@ -27,13 +27,26 @@ source-repository head
 
 library
   exposed-modules:
-      Lib
+      Defx.Commons
+      Defx.Providers.Oxr.Programs
+      Defx.Providers.Oxr.Retrieve
+      Defx.Providers.Oxr.Types
+      Defx.Types.DailyRates
   other-modules:
       Paths_defx
   hs-source-dirs:
       src
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , http-client
+    , http-conduit
+    , http-types
+    , scientific
+    , text
+    , time
+    , unordered-containers
   default-language: Haskell2010
 
 executable defx-exe
@@ -44,8 +57,18 @@ executable defx-exe
       app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
+    , bytestring
     , defx
+    , http-client
+    , http-conduit
+    , http-types
+    , optparse-applicative
+    , scientific
+    , text
+    , time
+    , unordered-containers
   default-language: Haskell2010
 
 test-suite defx-doctest
@@ -57,9 +80,18 @@ test-suite defx-doctest
       ./.
   ghc-options: -threaded
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
+    , bytestring
     , defx
     , doctest
+    , http-client
+    , http-conduit
+    , http-types
+    , scientific
+    , text
+    , time
+    , unordered-containers
   default-language: Haskell2010
 
 test-suite defx-test
@@ -71,6 +103,15 @@ test-suite defx-test
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
+    , bytestring
     , defx
+    , http-client
+    , http-conduit
+    , http-types
+    , scientific
+    , text
+    , time
+    , unordered-containers
   default-language: Haskell2010
