@@ -1,0 +1,41 @@
+name:                defx
+version:             0.0.0.0
+github:              "telostat/defx"
+license:             BSD3
+author:              "Vehbi Sinan Tunalioglu"
+maintainer:          "vst@vsthost.com"
+copyright:           "2020 Telostat Pte Ltd"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+description:         Please see the README on GitHub at <https://github.com/telostat/defx#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+
+executables:
+  defx-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - defx
+
+tests:
+  defx-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - defx
